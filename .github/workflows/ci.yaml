@@ -33,4 +33,4 @@ jobs:
           branch: gh-pages
           folder: dist
           clean: true
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.ACCESS_TOKEN }}
