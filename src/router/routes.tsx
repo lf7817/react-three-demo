@@ -19,6 +19,10 @@ const routes: SoRouteObject[] = [
         path: '/guide',
         element: <Guide />,
       },
+      {
+        path: '/base',
+        asyncComponent: () => import('@/pages/01-Base'),
+      },
     ],
   },
 ];
