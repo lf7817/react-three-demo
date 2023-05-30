@@ -23,6 +23,10 @@ const routes: SoRouteObject[] = [
         path: '/base',
         asyncComponent: () => import('@/pages/01-Base'),
       },
+      {
+        path: '/panda',
+        asyncComponent: () => import('@/pages/02-Panda'),
+      },
     ],
   },
 ];

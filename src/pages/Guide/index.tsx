@@ -9,6 +9,11 @@ const Guide: FC = () => {
           01-基础
         </Link>
       </li>
+      <li>
+        <Link to={'/panda'} style={{ fontSize: 24, color: 'blue' }}>
+          02-大熊猫世界
+        </Link>
+      </li>
     </ul>
   );
 };
