@@ -1,0 +1,31 @@
+name: Deploy on push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2 # 安装 Node.js
+        with:
+          node-version: '16.19.1'
+      - name: Cache dependencies
+        uses: actions/cache@v2 # 创建或使用缓存
+        with:
+          path: ~/.pnpm-store # 要缓存的路径
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yml') }} # 缓存键名
+          restore-keys: |
+            ${{ runner.os }}-pnpm-      # 恢复缓存的键名
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile # 安装依赖
+      - name: Build the app
+        run: pnpm run build # 构建静态文件
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: dist

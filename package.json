@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://lf7817.github.io/react-three-demo",
   "scripts": {
     "preinstall": "node ./scripts/preinstall.mjs",
     "dev": "vite",
